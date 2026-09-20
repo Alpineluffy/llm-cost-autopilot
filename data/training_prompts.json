@@ -1,0 +1,1322 @@
+[
+  {
+    "prompt": "My team lead mentioned this in standup yesterday and I nodded along, but I want to actually understand it before the next sprint planning meeting.\n\nThe function in question:\n\n```javascript\nasync function fetchAll(ids) {\n  const out = [];\n  for (const id of ids) {\n    out.push(await fetch(`/api/${id}`));\n  }\n  return out;\n}\n```\n\nWrite a thread-safe LRU cache.\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 3,
+    "category": "concurrency",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Constraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.\n\nWhat does len() do?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "I'm still pretty new to all of this and I've been going back and forth reading different tutorials, and honestly a lot of them contradict each other, so I wanted to just ask directly.\n\nLogs from the failure:\n\n2026-03-04 11:22:01 ERROR  request failed status=500 trace_id=8f2a upstream=payments latency_ms=30012\n2026-03-04 11:22:01 ERROR  context deadline exceeded\n\nHow do I declare a constant in Java?\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 1,
+    "category": "syntax",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Context: this is for a side project I'm building on weekends, nothing production critical, but I'd still like to do it properly rather than hacking something together that I'll regret later.\n\nIt fails intermittently with:\n\nConnectionResetError: [Errno 104] Connection reset by peer\n  during handshake with pool worker 3\n\nExplain what a context manager is and when to use one.\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Explain the difference between deep and shallow copy.",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "short"
+  },
+  {
+    "prompt": "What is the difference between = and == ?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Write an empty class definition.",
+    "tier": 1,
+    "category": "boilerplate",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Context: this is for a side project I'm building on weekends, nothing production critical, but I'd still like to do it properly rather than hacking something together that I'll regret later.\n\nThe traceback I'm getting:\n\nTraceback (most recent call last):\n  File \"app.py\", line 42, in <module>\n    main()\n  File \"app.py\", line 31, in main\n    result = process(data)\nTypeError: 'NoneType' object is not iterable\n\nWhat is a module?\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "long"
+  },
+  {
+    "prompt": "My team lead mentioned this in standup yesterday and I nodded along, but I want to actually understand it before the next sprint planning meeting.\n\nHere's the relevant code:\n\n```python\ndef process(items):\n    results = []\n    for i in range(len(items)):\n        if items[i] is not None:\n            results.append(items[i])\n    return results\n```\n\nSort this list alphabetically.\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 1,
+    "category": "simple_code",
+    "length_band": "long"
+  },
+  {
+    "prompt": "We inherited this service from another team during a reorg and the documentation is, generously, a single README with a TODO in it.\n\nHere's the relevant code:\n\n```python\ndef process(items):\n    results = []\n    for i in range(len(items)):\n        if items[i] is not None:\n            results.append(items[i])\n    return results\n```\n\nHow do I get the length of an array in JavaScript?\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 1,
+    "category": "syntax",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I'm still pretty new to all of this and I've been going back and forth reading different tutorials, and honestly a lot of them contradict each other, so I wanted to just ask directly.\n\nDesign an idempotent payment pipeline.",
+    "tier": 3,
+    "category": "architecture",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "What is a keyword argument?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "short"
+  },
+  {
+    "prompt": "My team lead mentioned this in standup yesterday and I nodded along, but I want to actually understand it before the next sprint planning meeting.\n\nHow do I exit a Python script early?",
+    "tier": 1,
+    "category": "syntax",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "We're doing a code review tomorrow and I want to get ahead of the feedback rather than having the whole thing torn apart in the meeting.\n\nThe traceback I'm getting:\n\nTraceback (most recent call last):\n  File \"app.py\", line 42, in <module>\n    main()\n  File \"app.py\", line 31, in main\n    result = process(data)\nTypeError: 'NoneType' object is not iterable\n\nImplement consistent hashing with virtual nodes.\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I searched for this and found three different answers on Stack Overflow, all from different years, and I can't tell which one still applies.\n\nIt fails intermittently with:\n\nConnectionResetError: [Errno 104] Connection reset by peer\n  during handshake with pool worker 3\n\nWhat does append() do?\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Requirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.\n\nWhy is my regex matching too much?",
+    "tier": 2,
+    "category": "debugging",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "This is part of a larger refactor we've been putting off for months, and I finally have a week of runway to actually deal with it properly.\n\nWhy is this container restarting?",
+    "tier": 2,
+    "category": "debugging",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "This is part of a larger refactor we've been putting off for months, and I finally have a week of runway to actually deal with it properly.\n\nIt fails intermittently with:\n\nConnectionResetError: [Errno 104] Connection reset by peer\n  during handshake with pool worker 3\n\nWhat are the pros and cons of using an ORM?\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 2,
+    "category": "comparison",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I'm preparing for a technical interview next week and this came up in a practice problem that I completely fumbled.\n\nIt fails intermittently with:\n\nConnectionResetError: [Errno 104] Connection reset by peer\n  during handshake with pool worker 3\n\nWhy does this date parse wrong in another timezone?\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 2,
+    "category": "debugging",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I'm preparing for a technical interview next week and this came up in a practice problem that I completely fumbled.\n\nWhat does break do in a loop?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Architect a real-time collaborative editor.",
+    "tier": 3,
+    "category": "architecture",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Refactor this to remove the nested ifs.",
+    "tier": 2,
+    "category": "refactoring",
+    "length_band": "short"
+  },
+  {
+    "prompt": "This is part of a larger refactor we've been putting off for months, and I finally have a week of runway to actually deal with it properly.\n\nThe snippet:\n\n```go\nfunc worker(jobs <-chan int, out chan<- int) {\n    for j := range jobs {\n        out <- j * 2\n    }\n}\n```\n\nWhy does this return None instead of a value?\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 2,
+    "category": "debugging",
+    "length_band": "long"
+  },
+  {
+    "prompt": "My team lead mentioned this in standup yesterday and I nodded along, but I want to actually understand it before the next sprint planning meeting.\n\nThis is what I have so far:\n\n```python\nclass Cache:\n    def __init__(self):\n        self.store = {}\n\n    def get(self, k):\n        return self.store.get(k)\n```\n\nWhat's the difference between a process and a thread?\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Constraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.\n\nDebug this off-by-one error.",
+    "tier": 2,
+    "category": "debugging",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "What does strip() do?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "short"
+  },
+  {
+    "prompt": "A few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.\n\nExplain what idempotent means for an HTTP endpoint.",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "I searched for this and found three different answers on Stack Overflow, all from different years, and I can't tell which one still applies.\n\nHere's the relevant code:\n\n```python\ndef process(items):\n    results = []\n    for i in range(len(items)):\n        if items[i] is not None:\n            results.append(items[i])\n    return results\n```\n\nBuild a retry policy with exponential backoff and jitter.\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 3,
+    "category": "system_design",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Write a print statement with an f-string.",
+    "tier": 1,
+    "category": "simple_code",
+    "length_band": "short"
+  },
+  {
+    "prompt": "What does the % operator do?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Add a docstring to this function.",
+    "tier": 1,
+    "category": "format",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Context: this is for a side project I'm building on weekends, nothing production critical, but I'd still like to do it properly rather than hacking something together that I'll regret later.\n\nLogs from the failure:\n\n2026-03-04 11:22:01 ERROR  request failed status=500 trace_id=8f2a upstream=payments latency_ms=30012\n2026-03-04 11:22:01 ERROR  context deadline exceeded\n\nWhy does this return a copy instead of a reference?\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 2,
+    "category": "debugging",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I'm preparing for a technical interview next week and this came up in a practice problem that I completely fumbled.\n\nExplain when to use composition over inheritance.",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "I've been staring at this for about two hours now and I think I'm too deep in it to see the obvious answer, so a fresh pair of eyes would help.\n\nThe traceback I'm getting:\n\nTraceback (most recent call last):\n  File \"app.py\", line 42, in <module>\n    main()\n  File \"app.py\", line 31, in main\n    result = process(data)\nTypeError: 'NoneType' object is not iterable\n\nDesign a versioned document store with conflict resolution.\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 3,
+    "category": "architecture",
+    "length_band": "long"
+  },
+  {
+    "prompt": "A few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.\n\nExplain what connection pooling does.",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "My team lead mentioned this in standup yesterday and I nodded along, but I want to actually understand it before the next sprint planning meeting.\n\nLogs from the failure:\n\n2026-03-04 11:22:01 ERROR  request failed status=500 trace_id=8f2a upstream=payments latency_ms=30012\n2026-03-04 11:22:01 ERROR  context deadline exceeded\n\nImplement a query planner.\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "long"
+  },
+  {
+    "prompt": "This is part of a larger refactor we've been putting off for months, and I finally have a week of runway to actually deal with it properly.\n\nImplement a distributed lock with fencing tokens.",
+    "tier": 3,
+    "category": "concurrency",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Design an anomaly detection pipeline.",
+    "tier": 3,
+    "category": "machine_learning",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Context: this is for a side project I'm building on weekends, nothing production critical, but I'd still like to do it properly rather than hacking something together that I'll regret later.\n\nWrite a dependency resolver that detects cycles.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Requirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.\n\nDesign an event sourcing system.",
+    "tier": 3,
+    "category": "architecture",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "We're doing a code review tomorrow and I want to get ahead of the feedback rather than having the whole thing torn apart in the meeting.\n\nImplement a red-black tree.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "I've been staring at this for about two hours now and I think I'm too deep in it to see the obvious answer, so a fresh pair of eyes would help.\n\nLogs from the failure:\n\n2026-03-04 11:22:01 ERROR  request failed status=500 trace_id=8f2a upstream=payments latency_ms=30012\n2026-03-04 11:22:01 ERROR  context deadline exceeded\n\nFormat this JSON.\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 1,
+    "category": "format",
+    "length_band": "long"
+  },
+  {
+    "prompt": "We inherited this service from another team during a reorg and the documentation is, generously, a single README with a TODO in it.\n\nThe snippet:\n\n```go\nfunc worker(jobs <-chan int, out chan<- int) {\n    for j := range jobs {\n        out <- j * 2\n    }\n}\n```\n\nWrite the shebang line for a bash script.\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 1,
+    "category": "boilerplate",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Summarize the failure modes in this runbook.",
+    "tier": 2,
+    "category": "summarization",
+    "length_band": "short"
+  },
+  {
+    "prompt": "I'm still pretty new to all of this and I've been going back and forth reading different tutorials, and honestly a lot of them contradict each other, so I wanted to just ask directly.\n\nThe function in question:\n\n```javascript\nasync function fetchAll(ids) {\n  const out = [];\n  for (const id of ids) {\n    out.push(await fetch(`/api/${id}`));\n  }\n  return out;\n}\n```\n\nWhat does this stack trace tell me?\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 2,
+    "category": "debugging",
+    "length_band": "long"
+  },
+  {
+    "prompt": "A few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.\n\nDesign a leader election protocol.",
+    "tier": 3,
+    "category": "system_design",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Please keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.\n\nConvert this string to uppercase.",
+    "tier": 1,
+    "category": "simple_code",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Implement a merge algorithm for concurrent edits.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "short"
+  },
+  {
+    "prompt": "How do I write a single line if statement?",
+    "tier": 1,
+    "category": "syntax",
+    "length_band": "short"
+  },
+  {
+    "prompt": "My team lead mentioned this in standup yesterday and I nodded along, but I want to actually understand it before the next sprint planning meeting.\n\nCurrent implementation:\n\n```sql\nSELECT u.*, o.total\nFROM users u\nLEFT JOIN orders o ON o.user_id = u.id\nWHERE u.created_at > '2024-01-01'\nORDER BY o.total DESC;\n```\n\nDesign a multi-level cache with write-through semantics.\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 3,
+    "category": "architecture",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Please keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.\n\nImplement backpressure across a async pipeline.",
+    "tier": 3,
+    "category": "concurrency",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Explain what a transaction isolation level does.",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Turn this into a one-line list comprehension.",
+    "tier": 1,
+    "category": "simple_code",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Architect a migration from a monolith to services.",
+    "tier": 3,
+    "category": "architecture",
+    "length_band": "short"
+  },
+  {
+    "prompt": "I'm preparing for a technical interview next week and this came up in a practice problem that I completely fumbled.\n\nHow do I create an empty dictionary?",
+    "tier": 1,
+    "category": "syntax",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Why does this dictionary lose its ordering?",
+    "tier": 2,
+    "category": "debugging",
+    "length_band": "short"
+  },
+  {
+    "prompt": "This is part of a larger refactor we've been putting off for months, and I finally have a week of runway to actually deal with it properly.\n\nThis is what I have so far:\n\n```python\nclass Cache:\n    def __init__(self):\n        self.store = {}\n\n    def get(self, k):\n        return self.store.get(k)\n```\n\nConvert this list to a set.\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 1,
+    "category": "simple_code",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Context: this is for a side project I'm building on weekends, nothing production critical, but I'd still like to do it properly rather than hacking something together that I'll regret later.\n\nThe function in question:\n\n```javascript\nasync function fetchAll(ids) {\n  const out = [];\n  for (const id of ids) {\n    out.push(await fetch(`/api/${id}`));\n  }\n  return out;\n}\n```\n\nExplain how garbage collection works in Python.\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "long"
+  },
+  {
+    "prompt": "What is a string?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Context: this is for a side project I'm building on weekends, nothing production critical, but I'd still like to do it properly rather than hacking something together that I'll regret later.\n\nCurrent implementation:\n\n```sql\nSELECT u.*, o.total\nFROM users u\nLEFT JOIN orders o ON o.user_id = u.id\nWHERE u.created_at > '2024-01-01'\nORDER BY o.total DESC;\n```\n\nCheck this function for off-by-one errors.\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 2,
+    "category": "code_review",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Why does this function mutate its input?",
+    "tier": 2,
+    "category": "debugging",
+    "length_band": "short"
+  },
+  {
+    "prompt": "We inherited this service from another team during a reorg and the documentation is, generously, a single README with a TODO in it.\n\nThe snippet:\n\n```go\nfunc worker(jobs <-chan int, out chan<- int) {\n    for j := range jobs {\n        out <- j * 2\n    }\n}\n```\n\nSummarize the tradeoffs in this design doc.\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 2,
+    "category": "summarization",
+    "length_band": "long"
+  },
+  {
+    "prompt": "What is a float?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Improve the error handling in this function.",
+    "tier": 2,
+    "category": "code_review",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Write a function that returns the max of two numbers.",
+    "tier": 1,
+    "category": "simple_code",
+    "length_band": "short"
+  },
+  {
+    "prompt": "We're doing a code review tomorrow and I want to get ahead of the feedback rather than having the whole thing torn apart in the meeting.\n\nChange these double quotes to single quotes.",
+    "tier": 1,
+    "category": "format",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Implement a parser with error recovery.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "short"
+  },
+  {
+    "prompt": "What is a list?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Quick bit of background: the codebase is about four years old, has been through two rewrites, and the original authors have all left the company.\n\nCurrent implementation:\n\n```sql\nSELECT u.*, o.total\nFROM users u\nLEFT JOIN orders o ON o.user_id = u.id\nWHERE u.created_at > '2024-01-01'\nORDER BY o.total DESC;\n```\n\nWhat does split() return?\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "long"
+  },
+  {
+    "prompt": "How do I join a list into a string?",
+    "tier": 1,
+    "category": "syntax",
+    "length_band": "short"
+  },
+  {
+    "prompt": "What is a variable in Python?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "short"
+  },
+  {
+    "prompt": "This is part of a larger refactor we've been putting off for months, and I finally have a week of runway to actually deal with it properly.\n\nLogs from the failure:\n\n2026-03-04 11:22:01 ERROR  request failed status=500 trace_id=8f2a upstream=payments latency_ms=30012\n2026-03-04 11:22:01 ERROR  context deadline exceeded\n\nHow do I check if a key exists in a dict?\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 1,
+    "category": "syntax",
+    "length_band": "long"
+  },
+  {
+    "prompt": "This is part of a larger refactor we've been putting off for months, and I finally have a week of runway to actually deal with it properly.\n\nCurrent implementation:\n\n```sql\nSELECT u.*, o.total\nFROM users u\nLEFT JOIN orders o ON o.user_id = u.id\nWHERE u.created_at > '2024-01-01'\nORDER BY o.total DESC;\n```\n\nImplement a bytecode interpreter.\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I'm still pretty new to all of this and I've been going back and forth reading different tutorials, and honestly a lot of them contradict each other, so I wanted to just ask directly.\n\nThe function in question:\n\n```javascript\nasync function fetchAll(ids) {\n  const out = [];\n  for (const id of ids) {\n    out.push(await fetch(`/api/${id}`));\n  }\n  return out;\n}\n```\n\nExplain how Python decorators work.\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Design a time-series store with downsampling.",
+    "tier": 3,
+    "category": "architecture",
+    "length_band": "short"
+  },
+  {
+    "prompt": "We inherited this service from another team during a reorg and the documentation is, generously, a single README with a TODO in it.\n\nWhat is a tuple?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Indent this code block properly.",
+    "tier": 1,
+    "category": "format",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Requirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.\n\nDesign a job scheduler with priorities and retries.",
+    "tier": 3,
+    "category": "system_design",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "We're doing a code review tomorrow and I want to get ahead of the feedback rather than having the whole thing torn apart in the meeting.\n\nReview this function for readability.",
+    "tier": 2,
+    "category": "code_review",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Quick bit of background: the codebase is about four years old, has been through two rewrites, and the original authors have all left the company.\n\nHow do I read a file line by line?",
+    "tier": 1,
+    "category": "syntax",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "My team lead mentioned this in standup yesterday and I nodded along, but I want to actually understand it before the next sprint planning meeting.\n\nThis is what I have so far:\n\n```python\nclass Cache:\n    def __init__(self):\n        self.store = {}\n\n    def get(self, k):\n        return self.store.get(k)\n```\n\nBuild a memory allocator.\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Summarize what this migration script changes.",
+    "tier": 2,
+    "category": "summarization",
+    "length_band": "short"
+  },
+  {
+    "prompt": "What is an integer?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "short"
+  },
+  {
+    "prompt": "I've been staring at this for about two hours now and I think I'm too deep in it to see the obvious answer, so a fresh pair of eyes would help.\n\nThe traceback I'm getting:\n\nTraceback (most recent call last):\n  File \"app.py\", line 42, in <module>\n    main()\n  File \"app.py\", line 31, in main\n    result = process(data)\nTypeError: 'NoneType' object is not iterable\n\nDesign a schema for hierarchical permissions.\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 3,
+    "category": "architecture",
+    "length_band": "long"
+  },
+  {
+    "prompt": "How do I check if a string is empty?",
+    "tier": 1,
+    "category": "syntax",
+    "length_band": "short"
+  },
+  {
+    "prompt": "We're doing a code review tomorrow and I want to get ahead of the feedback rather than having the whole thing torn apart in the meeting.\n\nIt fails intermittently with:\n\nConnectionResetError: [Errno 104] Connection reset by peer\n  during handshake with pool worker 3\n\nArchitect a multi-tenant SaaS database schema.\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 3,
+    "category": "architecture",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I'm preparing for a technical interview next week and this came up in a practice problem that I completely fumbled.\n\nIt fails intermittently with:\n\nConnectionResetError: [Errno 104] Connection reset by peer\n  during handshake with pool worker 3\n\nImplement a priority queue with decrease-key.\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Requirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.\n\nCompare a queue and a stack for this use case.",
+    "tier": 2,
+    "category": "comparison",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "I've been staring at this for about two hours now and I think I'm too deep in it to see the obvious answer, so a fresh pair of eyes would help.\n\nImplement a concurrent hash map with striped locking.",
+    "tier": 3,
+    "category": "concurrency",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "We're doing a code review tomorrow and I want to get ahead of the feedback rather than having the whole thing torn apart in the meeting.\n\nArchitect a data pipeline with exactly-once delivery.",
+    "tier": 3,
+    "category": "architecture",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Build a connection pool with backpressure.",
+    "tier": 3,
+    "category": "concurrency",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Review this retry logic.",
+    "tier": 2,
+    "category": "code_review",
+    "length_band": "short"
+  },
+  {
+    "prompt": "I'm still pretty new to all of this and I've been going back and forth reading different tutorials, and honestly a lot of them contradict each other, so I wanted to just ask directly.\n\nGive me the boilerplate for a Python script.",
+    "tier": 1,
+    "category": "boilerplate",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "I'm preparing for a technical interview next week and this came up in a practice problem that I completely fumbled.\n\nHere's the relevant code:\n\n```python\ndef process(items):\n    results = []\n    for i in range(len(items)):\n        if items[i] is not None:\n            results.append(items[i])\n    return results\n```\n\nDesign an encryption-at-rest scheme with key rotation.\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 3,
+    "category": "security",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I've been staring at this for about two hours now and I think I'm too deep in it to see the obvious answer, so a fresh pair of eyes would help.\n\nConvert this callback code to async/await.",
+    "tier": 2,
+    "category": "refactoring",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "We inherited this service from another team during a reorg and the documentation is, generously, a single README with a TODO in it.\n\nIt fails intermittently with:\n\nConnectionResetError: [Errno 104] Connection reset by peer\n  during handshake with pool worker 3\n\nRename this variable to userCount.\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 1,
+    "category": "refactor",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Design a fair queuing system across noisy tenants.",
+    "tier": 3,
+    "category": "system_design",
+    "length_band": "short"
+  },
+  {
+    "prompt": "My team lead mentioned this in standup yesterday and I nodded along, but I want to actually understand it before the next sprint planning meeting.\n\nIt fails intermittently with:\n\nConnectionResetError: [Errno 104] Connection reset by peer\n  during handshake with pool worker 3\n\nImplement a rate-limited crawler that respects robots.txt.\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 3,
+    "category": "system_design",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Review this API response schema.",
+    "tier": 2,
+    "category": "code_review",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Compare pytest and unittest.",
+    "tier": 2,
+    "category": "comparison",
+    "length_band": "short"
+  },
+  {
+    "prompt": "This is part of a larger refactor we've been putting off for months, and I finally have a week of runway to actually deal with it properly.\n\nIt fails intermittently with:\n\nConnectionResetError: [Errno 104] Connection reset by peer\n  during handshake with pool worker 3\n\nWhat's causing this circular import?\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 2,
+    "category": "debugging",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Implement a coroutine scheduler.",
+    "tier": 3,
+    "category": "concurrency",
+    "length_band": "short"
+  },
+  {
+    "prompt": "We inherited this service from another team during a reorg and the documentation is, generously, a single README with a TODO in it.\n\nLogs from the failure:\n\n2026-03-04 11:22:01 ERROR  request failed status=500 trace_id=8f2a upstream=payments latency_ms=30012\n2026-03-04 11:22:01 ERROR  context deadline exceeded\n\nAdd logging to this function in the right places.\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 2,
+    "category": "refactoring",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Build an incremental compiler.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "short"
+  },
+  {
+    "prompt": "My team lead mentioned this in standup yesterday and I nodded along, but I want to actually understand it before the next sprint planning meeting.\n\nIt fails intermittently with:\n\nConnectionResetError: [Errno 104] Connection reset by peer\n  during handshake with pool worker 3\n\nImplement a trie with fuzzy matching.\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "long"
+  },
+  {
+    "prompt": "How do I round a number to 2 decimals?",
+    "tier": 1,
+    "category": "syntax",
+    "length_band": "short"
+  },
+  {
+    "prompt": "My team lead mentioned this in standup yesterday and I nodded along, but I want to actually understand it before the next sprint planning meeting.\n\nLogs from the failure:\n\n2026-03-04 11:22:01 ERROR  request failed status=500 trace_id=8f2a upstream=payments latency_ms=30012\n2026-03-04 11:22:01 ERROR  context deadline exceeded\n\nWhat does abs() do?\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I've been staring at this for about two hours now and I think I'm too deep in it to see the obvious answer, so a fresh pair of eyes would help.\n\nHere's the relevant code:\n\n```python\ndef process(items):\n    results = []\n    for i in range(len(items)):\n        if items[i] is not None:\n            results.append(items[i])\n    return results\n```\n\nWhat is an index in a list?\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Context: this is for a side project I'm building on weekends, nothing production critical, but I'd still like to do it properly rather than hacking something together that I'll regret later.\n\nHere's the relevant code:\n\n```python\ndef process(items):\n    results = []\n    for i in range(len(items)):\n        if items[i] is not None:\n            results.append(items[i])\n    return results\n```\n\nDesign a circuit breaker for a fan-out service.\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 3,
+    "category": "system_design",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Context: this is for a side project I'm building on weekends, nothing production critical, but I'd still like to do it properly rather than hacking something together that I'll regret later.\n\nThe function in question:\n\n```javascript\nasync function fetchAll(ids) {\n  const out = [];\n  for (const id of ids) {\n    out.push(await fetch(`/api/${id}`));\n  }\n  return out;\n}\n```\n\nCompare environment variables and a config file.\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 2,
+    "category": "comparison",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Implement Raft consensus.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "short"
+  },
+  {
+    "prompt": "I'm still pretty new to all of this and I've been going back and forth reading different tutorials, and honestly a lot of them contradict each other, so I wanted to just ask directly.\n\nMake this variable name snake_case.",
+    "tier": 1,
+    "category": "refactor",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Review this SQL query for correctness.",
+    "tier": 2,
+    "category": "code_review",
+    "length_band": "short"
+  },
+  {
+    "prompt": "I searched for this and found three different answers on Stack Overflow, all from different years, and I can't tell which one still applies.\n\nWhat does upper() do?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Context: this is for a side project I'm building on weekends, nothing production critical, but I'd still like to do it properly rather than hacking something together that I'll regret later.\n\nImplement a skip list.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "What is a comment?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "short"
+  },
+  {
+    "prompt": "What is a for loop?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Quick bit of background: the codebase is about four years old, has been through two rewrites, and the original authors have all left the company.\n\nWrite a work-stealing scheduler.",
+    "tier": 3,
+    "category": "concurrency",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Why is my API returning 500 instead of 404?",
+    "tier": 2,
+    "category": "debugging",
+    "length_band": "short"
+  },
+  {
+    "prompt": "We're doing a code review tomorrow and I want to get ahead of the feedback rather than having the whole thing torn apart in the meeting.\n\nAdd type hints to this function.",
+    "tier": 2,
+    "category": "refactoring",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "We inherited this service from another team during a reorg and the documentation is, generously, a single README with a TODO in it.\n\nThe snippet:\n\n```go\nfunc worker(jobs <-chan int, out chan<- int) {\n    for j := range jobs {\n        out <- j * 2\n    }\n}\n```\n\nReview this function's parameter list.\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 2,
+    "category": "code_review",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Why is this cache never hitting?",
+    "tier": 2,
+    "category": "debugging",
+    "length_band": "short"
+  },
+  {
+    "prompt": "My team lead mentioned this in standup yesterday and I nodded along, but I want to actually understand it before the next sprint planning meeting.\n\nWrite an empty try/except block.",
+    "tier": 1,
+    "category": "boilerplate",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Build a diff algorithm for structured data.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Quick bit of background: the codebase is about four years old, has been through two rewrites, and the original authors have all left the company.\n\nThe function in question:\n\n```javascript\nasync function fetchAll(ids) {\n  const out = [];\n  for (const id of ids) {\n    out.push(await fetch(`/api/${id}`));\n  }\n  return out;\n}\n```\n\nArchitect a blue-green deployment with database changes.\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 3,
+    "category": "devops",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I'm preparing for a technical interview next week and this came up in a practice problem that I completely fumbled.\n\nThe function in question:\n\n```javascript\nasync function fetchAll(ids) {\n  const out = [];\n  for (const id of ids) {\n    out.push(await fetch(`/api/${id}`));\n  }\n  return out;\n}\n```\n\nExtract the numbers from this string.\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 1,
+    "category": "extraction",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Constraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.\n\nCapitalize the first letter of this word.",
+    "tier": 1,
+    "category": "simple_code",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Please keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.\n\nPrint hello world in Go.",
+    "tier": 1,
+    "category": "simple_code",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "My team lead mentioned this in standup yesterday and I nodded along, but I want to actually understand it before the next sprint planning meeting.\n\nWalk me through what this regex matches.",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Constraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.\n\nDesign a replication protocol tolerant of network partitions.",
+    "tier": 3,
+    "category": "system_design",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "I'm still pretty new to all of this and I've been going back and forth reading different tutorials, and honestly a lot of them contradict each other, so I wanted to just ask directly.\n\nThe traceback I'm getting:\n\nTraceback (most recent call last):\n  File \"app.py\", line 42, in <module>\n    main()\n  File \"app.py\", line 31, in main\n    result = process(data)\nTypeError: 'NoneType' object is not iterable\n\nSuggest better names for these variables.\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 2,
+    "category": "code_review",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I've been staring at this for about two hours now and I think I'm too deep in it to see the obvious answer, so a fresh pair of eyes would help.\n\nThe function in question:\n\n```javascript\nasync function fetchAll(ids) {\n  const out = [];\n  for (const id of ids) {\n    out.push(await fetch(`/api/${id}`));\n  }\n  return out;\n}\n```\n\nCompare synchronous and asynchronous I/O.\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 2,
+    "category": "comparison",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I'm preparing for a technical interview next week and this came up in a practice problem that I completely fumbled.\n\nThis is what I have so far:\n\n```python\nclass Cache:\n    def __init__(self):\n        self.store = {}\n\n    def get(self, k):\n        return self.store.get(k)\n```\n\nBuild a lock-free queue.\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 3,
+    "category": "concurrency",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Implement a streaming median over a sliding window.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Quick bit of background: the codebase is about four years old, has been through two rewrites, and the original authors have all left the company.\n\nWhat's wrong with catching a bare except?",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Requirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.\n\nWrite unit tests for this function.",
+    "tier": 2,
+    "category": "testing",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Design an audit log that cannot be tampered with.",
+    "tier": 3,
+    "category": "security",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Implement copy-on-write for a persistent data structure.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "short"
+  },
+  {
+    "prompt": "We inherited this service from another team during a reorg and the documentation is, generously, a single README with a TODO in it.\n\nIt fails intermittently with:\n\nConnectionResetError: [Errno 104] Connection reset by peer\n  during handshake with pool worker 3\n\nHow do I declare an array in C?\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 1,
+    "category": "syntax",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I'm preparing for a technical interview next week and this came up in a practice problem that I completely fumbled.\n\nWhat is a nested list?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Explain how JWT authentication works.",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Design a distributed rate limiter.",
+    "tier": 3,
+    "category": "system_design",
+    "length_band": "short"
+  },
+  {
+    "prompt": "I searched for this and found three different answers on Stack Overflow, all from different years, and I can't tell which one still applies.\n\nIt fails intermittently with:\n\nConnectionResetError: [Errno 104] Connection reset by peer\n  during handshake with pool worker 3\n\nWhen should I use a set instead of a list?\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 2,
+    "category": "comparison",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I'm still pretty new to all of this and I've been going back and forth reading different tutorials, and honestly a lot of them contradict each other, so I wanted to just ask directly.\n\nTrace what this recursive call returns.",
+    "tier": 2,
+    "category": "trace",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Requirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.\n\nExplain what a memory leak looks like in Python.",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Context: this is for a side project I'm building on weekends, nothing production critical, but I'd still like to do it properly rather than hacking something together that I'll regret later.\n\nHow do I comment out a line in SQL?",
+    "tier": 1,
+    "category": "syntax",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Quick bit of background: the codebase is about four years old, has been through two rewrites, and the original authors have all left the company.\n\nLogs from the failure:\n\n2026-03-04 11:22:01 ERROR  request failed status=500 trace_id=8f2a upstream=payments latency_ms=30012\n2026-03-04 11:22:01 ERROR  context deadline exceeded\n\nWhen is a dataclass better than a dict?\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 2,
+    "category": "comparison",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I'm preparing for a technical interview next week and this came up in a practice problem that I completely fumbled.\n\nWrite a function that adds two numbers.",
+    "tier": 1,
+    "category": "simple_code",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "My team lead mentioned this in standup yesterday and I nodded along, but I want to actually understand it before the next sprint planning meeting.\n\nThe traceback I'm getting:\n\nTraceback (most recent call last):\n  File \"app.py\", line 42, in <module>\n    main()\n  File \"app.py\", line 31, in main\n    result = process(data)\nTypeError: 'NoneType' object is not iterable\n\nExplain what a race condition is with an example.\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Summarize what this class is responsible for.",
+    "tier": 2,
+    "category": "summarization",
+    "length_band": "short"
+  },
+  {
+    "prompt": "My team lead mentioned this in standup yesterday and I nodded along, but I want to actually understand it before the next sprint planning meeting.\n\nBuild a static analyzer that detects unused code paths.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Quick bit of background: the codebase is about four years old, has been through two rewrites, and the original authors have all left the company.\n\nWrite a scheduler that avoids priority inversion.",
+    "tier": 3,
+    "category": "concurrency",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "We're doing a code review tomorrow and I want to get ahead of the feedback rather than having the whole thing torn apart in the meeting.\n\nThe traceback I'm getting:\n\nTraceback (most recent call last):\n  File \"app.py\", line 42, in <module>\n    main()\n  File \"app.py\", line 31, in main\n    result = process(data)\nTypeError: 'NoneType' object is not iterable\n\nDesign a sharded counter that survives partitions.\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 3,
+    "category": "system_design",
+    "length_band": "long"
+  },
+  {
+    "prompt": "We're doing a code review tomorrow and I want to get ahead of the feedback rather than having the whole thing torn apart in the meeting.\n\nExplain the difference between authentication and authorization.",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Why is this test flaky?",
+    "tier": 2,
+    "category": "debugging",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Quick bit of background: the codebase is about four years old, has been through two rewrites, and the original authors have all left the company.\n\nHere's the relevant code:\n\n```python\ndef process(items):\n    results = []\n    for i in range(len(items)):\n        if items[i] is not None:\n            results.append(items[i])\n    return results\n```\n\nSummarize what this module does.\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 2,
+    "category": "summarization",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Why am I getting a KeyError here?",
+    "tier": 2,
+    "category": "debugging",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Design a recommendation system cold-start strategy.",
+    "tier": 3,
+    "category": "machine_learning",
+    "length_band": "short"
+  },
+  {
+    "prompt": "I've been staring at this for about two hours now and I think I'm too deep in it to see the obvious answer, so a fresh pair of eyes would help.\n\nRefactor these three near-identical functions.",
+    "tier": 2,
+    "category": "refactoring",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "I searched for this and found three different answers on Stack Overflow, all from different years, and I can't tell which one still applies.\n\nHow do I reverse a string?",
+    "tier": 1,
+    "category": "syntax",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Explain what happens when I call super().",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "short"
+  },
+  {
+    "prompt": "I'm still pretty new to all of this and I've been going back and forth reading different tutorials, and honestly a lot of them contradict each other, so I wanted to just ask directly.\n\nWrite a gitignore entry for node_modules.",
+    "tier": 1,
+    "category": "boilerplate",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Write a garbage collector.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "short"
+  },
+  {
+    "prompt": "This is part of a larger refactor we've been putting off for months, and I finally have a week of runway to actually deal with it properly.\n\nThis is what I have so far:\n\n```python\nclass Cache:\n    def __init__(self):\n        self.store = {}\n\n    def get(self, k):\n        return self.store.get(k)\n```\n\nReplace all tabs with spaces here.\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 1,
+    "category": "format",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Quick bit of background: the codebase is about four years old, has been through two rewrites, and the original authors have all left the company.\n\nThe traceback I'm getting:\n\nTraceback (most recent call last):\n  File \"app.py\", line 42, in <module>\n    main()\n  File \"app.py\", line 31, in main\n    result = process(data)\nTypeError: 'NoneType' object is not iterable\n\nReview this class for single responsibility.\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 2,
+    "category": "code_review",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I'm still pretty new to all of this and I've been going back and forth reading different tutorials, and honestly a lot of them contradict each other, so I wanted to just ask directly.\n\nHow do I concatenate two strings?",
+    "tier": 1,
+    "category": "syntax",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "This is part of a larger refactor we've been putting off for months, and I finally have a week of runway to actually deal with it properly.\n\nWhat is a boolean?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Convert this dictionary to JSON.",
+    "tier": 1,
+    "category": "simple_code",
+    "length_band": "short"
+  },
+  {
+    "prompt": "I'm preparing for a technical interview next week and this came up in a practice problem that I completely fumbled.\n\nDesign a webhook delivery system with ordering guarantees.",
+    "tier": 3,
+    "category": "system_design",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Context: this is for a side project I'm building on weekends, nothing production critical, but I'd still like to do it properly rather than hacking something together that I'll regret later.\n\nLogs from the failure:\n\n2026-03-04 11:22:01 ERROR  request failed status=500 trace_id=8f2a upstream=payments latency_ms=30012\n2026-03-04 11:22:01 ERROR  context deadline exceeded\n\nDesign a saga pattern for distributed transactions.\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 3,
+    "category": "architecture",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Context: this is for a side project I'm building on weekends, nothing production critical, but I'd still like to do it properly rather than hacking something together that I'll regret later.\n\nWhy is this query slower than expected?",
+    "tier": 2,
+    "category": "debugging",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "My team lead mentioned this in standup yesterday and I nodded along, but I want to actually understand it before the next sprint planning meeting.\n\nThe traceback I'm getting:\n\nTraceback (most recent call last):\n  File \"app.py\", line 42, in <module>\n    main()\n  File \"app.py\", line 31, in main\n    result = process(data)\nTypeError: 'NoneType' object is not iterable\n\nHow do I import a module in Python?\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 1,
+    "category": "syntax",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Write a load balancer with health checking.",
+    "tier": 3,
+    "category": "system_design",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Explain how indexes speed up a database query.",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "short"
+  },
+  {
+    "prompt": "What does return do?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Is this function doing too much? Review it.",
+    "tier": 2,
+    "category": "code_review",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Context: this is for a side project I'm building on weekends, nothing production critical, but I'd still like to do it properly rather than hacking something together that I'll regret later.\n\nHere's the relevant code:\n\n```python\ndef process(items):\n    results = []\n    for i in range(len(items)):\n        if items[i] is not None:\n            results.append(items[i])\n    return results\n```\n\nDesign a multi-region failover strategy.\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 3,
+    "category": "system_design",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Context: this is for a side project I'm building on weekends, nothing production critical, but I'd still like to do it properly rather than hacking something together that I'll regret later.\n\nSummarize the changes in this diff.",
+    "tier": 2,
+    "category": "summarization",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "We're doing a code review tomorrow and I want to get ahead of the feedback rather than having the whole thing torn apart in the meeting.\n\nThe traceback I'm getting:\n\nTraceback (most recent call last):\n  File \"app.py\", line 42, in <module>\n    main()\n  File \"app.py\", line 31, in main\n    result = process(data)\nTypeError: 'NoneType' object is not iterable\n\nExplain what this list comprehension does step by step.\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Context: this is for a side project I'm building on weekends, nothing production critical, but I'd still like to do it properly rather than hacking something together that I'll regret later.\n\nDesign a deduplicating backup system.",
+    "tier": 3,
+    "category": "architecture",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Context: this is for a side project I'm building on weekends, nothing production critical, but I'd still like to do it properly rather than hacking something together that I'll regret later.\n\nThe function in question:\n\n```javascript\nasync function fetchAll(ids) {\n  const out = [];\n  for (const id of ids) {\n    out.push(await fetch(`/api/${id}`));\n  }\n  return out;\n}\n```\n\nWhat does continue do in a loop?\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I searched for this and found three different answers on Stack Overflow, all from different years, and I can't tell which one still applies.\n\nIt fails intermittently with:\n\nConnectionResetError: [Errno 104] Connection reset by peer\n  during handshake with pool worker 3\n\nImplement a bloom filter with counting.\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Quick bit of background: the codebase is about four years old, has been through two rewrites, and the original authors have all left the company.\n\nDesign a feature flag system with gradual rollout.",
+    "tier": 3,
+    "category": "architecture",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "I've been staring at this for about two hours now and I think I'm too deep in it to see the obvious answer, so a fresh pair of eyes would help.\n\nHere's the relevant code:\n\n```python\ndef process(items):\n    results = []\n    for i in range(len(items)):\n        if items[i] is not None:\n            results.append(items[i])\n    return results\n```\n\nHow do I make a number negative?\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 1,
+    "category": "syntax",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I've been staring at this for about two hours now and I think I'm too deep in it to see the obvious answer, so a fresh pair of eyes would help.\n\nIt fails intermittently with:\n\nConnectionResetError: [Errno 104] Connection reset by peer\n  during handshake with pool worker 3\n\nHow do I check the Python version?\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "long"
+  },
+  {
+    "prompt": "We inherited this service from another team during a reorg and the documentation is, generously, a single README with a TODO in it.\n\nCurrent implementation:\n\n```sql\nSELECT u.*, o.total\nFROM users u\nLEFT JOIN orders o ON o.user_id = u.id\nWHERE u.created_at > '2024-01-01'\nORDER BY o.total DESC;\n```\n\nCompare Docker volumes and bind mounts.\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 2,
+    "category": "comparison",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Why is my loop running one extra time?",
+    "tier": 2,
+    "category": "debugging",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Requirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.\n\nList the keys of this dictionary.",
+    "tier": 1,
+    "category": "extraction",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Architect a read-heavy service with cache invalidation.",
+    "tier": 3,
+    "category": "architecture",
+    "length_band": "short"
+  },
+  {
+    "prompt": "My team lead mentioned this in standup yesterday and I nodded along, but I want to actually understand it before the next sprint planning meeting.\n\nDesign a zero-downtime schema migration strategy.",
+    "tier": 3,
+    "category": "architecture",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Compare REST and GraphQL for a small app.",
+    "tier": 2,
+    "category": "comparison",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Quick bit of background: the codebase is about four years old, has been through two rewrites, and the original authors have all left the company.\n\nHow do I get today's date?",
+    "tier": 1,
+    "category": "syntax",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "We're doing a code review tomorrow and I want to get ahead of the feedback rather than having the whole thing torn apart in the meeting.\n\nIt fails intermittently with:\n\nConnectionResetError: [Errno 104] Connection reset by peer\n  during handshake with pool worker 3\n\nDesign an OAuth token refresh flow that handles races.\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 3,
+    "category": "security",
+    "length_band": "long"
+  },
+  {
+    "prompt": "A few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.\n\nSummarize this error log.",
+    "tier": 2,
+    "category": "summarization",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Requirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.\n\nImplement a B-tree with deletion.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Quick bit of background: the codebase is about four years old, has been through two rewrites, and the original authors have all left the company.\n\nLogs from the failure:\n\n2026-03-04 11:22:01 ERROR  request failed status=500 trace_id=8f2a upstream=payments latency_ms=30012\n2026-03-04 11:22:01 ERROR  context deadline exceeded\n\nWrite the import line for datetime.\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 1,
+    "category": "boilerplate",
+    "length_band": "long"
+  },
+  {
+    "prompt": "My team lead mentioned this in standup yesterday and I nodded along, but I want to actually understand it before the next sprint planning meeting.\n\nHere's the relevant code:\n\n```python\ndef process(items):\n    results = []\n    for i in range(len(items)):\n        if items[i] is not None:\n            results.append(items[i])\n    return results\n```\n\nWhat is None in Python?\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Quick bit of background: the codebase is about four years old, has been through two rewrites, and the original authors have all left the company.\n\nThe traceback I'm getting:\n\nTraceback (most recent call last):\n  File \"app.py\", line 42, in <module>\n    main()\n  File \"app.py\", line 31, in main\n    result = process(data)\nTypeError: 'NoneType' object is not iterable\n\nArchitect a service mesh migration.\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 3,
+    "category": "devops",
+    "length_band": "long"
+  },
+  {
+    "prompt": "This is part of a larger refactor we've been putting off for months, and I finally have a week of runway to actually deal with it properly.\n\nThis is what I have so far:\n\n```python\nclass Cache:\n    def __init__(self):\n        self.store = {}\n\n    def get(self, k):\n        return self.store.get(k)\n```\n\nExtract all email addresses from this text.\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 1,
+    "category": "extraction",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Implement optimistic concurrency control.",
+    "tier": 3,
+    "category": "concurrency",
+    "length_band": "short"
+  },
+  {
+    "prompt": "I've been staring at this for about two hours now and I think I'm too deep in it to see the obvious answer, so a fresh pair of eyes would help.\n\nLogs from the failure:\n\n2026-03-04 11:22:01 ERROR  request failed status=500 trace_id=8f2a upstream=payments latency_ms=30012\n2026-03-04 11:22:01 ERROR  context deadline exceeded\n\nRefactor this to remove the global variable.\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 2,
+    "category": "refactoring",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I'm preparing for a technical interview next week and this came up in a practice problem that I completely fumbled.\n\nIt fails intermittently with:\n\nConnectionResetError: [Errno 104] Connection reset by peer\n  during handshake with pool worker 3\n\nWhat does += mean?\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "long"
+  },
+  {
+    "prompt": "Design a secret rotation system with zero downtime.",
+    "tier": 3,
+    "category": "security",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Quick bit of background: the codebase is about four years old, has been through two rewrites, and the original authors have all left the company.\n\nWhat does int() do to a string?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Prove this algorithm is O(n log n).",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Explain the difference between a list and a tuple.",
+    "tier": 2,
+    "category": "explanation",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Rewrite this loop to be more readable.",
+    "tier": 2,
+    "category": "refactoring",
+    "length_band": "short"
+  },
+  {
+    "prompt": "I'm preparing for a technical interview next week and this came up in a practice problem that I completely fumbled.\n\nTurn this snake_case name into camelCase.",
+    "tier": 1,
+    "category": "refactor",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Build a rate limiter using the token bucket algorithm.",
+    "tier": 3,
+    "category": "system_design",
+    "length_band": "short"
+  },
+  {
+    "prompt": "I'm still pretty new to all of this and I've been going back and forth reading different tutorials, and honestly a lot of them contradict each other, so I wanted to just ask directly.\n\nImplement a topological sort with cycle reporting.",
+    "tier": 3,
+    "category": "algorithm",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "This is part of a larger refactor we've been putting off for months, and I finally have a week of runway to actually deal with it properly.\n\nDesign a tenant isolation strategy for shared infrastructure.",
+    "tier": 3,
+    "category": "security",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "What is a function parameter?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "short"
+  },
+  {
+    "prompt": "Requirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.\n\nExplain why this raises a TypeError.",
+    "tier": 2,
+    "category": "debugging",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "Quick bit of background: the codebase is about four years old, has been through two rewrites, and the original authors have all left the company.\n\nLogs from the failure:\n\n2026-03-04 11:22:01 ERROR  request failed status=500 trace_id=8f2a upstream=payments latency_ms=30012\n2026-03-04 11:22:01 ERROR  context deadline exceeded\n\nFix the typo in this variable name.\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 1,
+    "category": "syntax_fix",
+    "length_band": "long"
+  },
+  {
+    "prompt": "I've been staring at this for about two hours now and I think I'm too deep in it to see the obvious answer, so a fresh pair of eyes would help.\n\nWhat edge cases am I missing in this validation?",
+    "tier": 2,
+    "category": "code_review",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "We inherited this service from another team during a reorg and the documentation is, generously, a single README with a TODO in it.\n\nDesign a CRDT for collaborative text editing.",
+    "tier": 3,
+    "category": "architecture",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "I'm still pretty new to all of this and I've been going back and forth reading different tutorials, and honestly a lot of them contradict each other, so I wanted to just ask directly.\n\nWhat's the bug in this sorting comparison?",
+    "tier": 2,
+    "category": "debugging",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "My team lead mentioned this in standup yesterday and I nodded along, but I want to actually understand it before the next sprint planning meeting.\n\nReview this for missing null checks.",
+    "tier": 2,
+    "category": "code_review",
+    "length_band": "medium"
+  },
+  {
+    "prompt": "What does pop() do on a list?",
+    "tier": 1,
+    "category": "basic_qa",
+    "length_band": "short"
+  },
+  {
+    "prompt": "We inherited this service from another team during a reorg and the documentation is, generously, a single README with a TODO in it.\n\nReview this for SQL injection risk.",
+    "tier": 2,
+    "category": "code_review",
+    "length_band": "medium"
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "prompt": "Implement Paxos.",
+    "tier": 3,
+    "category": "algorithm",
+    "adversarial": true
+  },
+  {
+    "prompt": "Design a CRDT.",
+    "tier": 3,
+    "category": "architecture",
+    "adversarial": true
+  },
+  {
+    "prompt": "Write a JIT compiler.",
+    "tier": 3,
+    "category": "algorithm",
+    "adversarial": true
+  },
+  {
+    "prompt": "Build a distributed tracer.",
+    "tier": 3,
+    "category": "system_design",
+    "adversarial": true
+  },
+  {
+    "prompt": "Implement MVCC.",
+    "tier": 3,
+    "category": "concurrency",
+    "adversarial": true
+  },
+  {
+    "prompt": "Design a sharding strategy.",
+    "tier": 3,
+    "category": "architecture",
+    "adversarial": true
+  },
+  {
+    "prompt": "Write a regex engine.",
+    "tier": 3,
+    "category": "algorithm",
+    "adversarial": true
+  },
+  {
+    "prompt": "Implement two-phase commit.",
+    "tier": 3,
+    "category": "concurrency",
+    "adversarial": true
+  },
+  {
+    "prompt": "Design a quorum read protocol.",
+    "tier": 3,
+    "category": "system_design",
+    "adversarial": true
+  },
+  {
+    "prompt": "Build an LSM tree.",
+    "tier": 3,
+    "category": "algorithm",
+    "adversarial": true
+  },
+  {
+    "prompt": "We inherited this service from another team during a reorg and the documentation is, generously, a single README with a TODO in it.\n\nThe function in question:\n\n```javascript\nasync function fetchAll(ids) {\n  const out = [];\n  for (const id of ids) {\n    out.push(await fetch(`/api/${id}`));\n  }\n  return out;\n}\n```\n\nWhat is a variable?\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 1,
+    "category": "basic_qa",
+    "adversarial": true
+  },
+  {
+    "prompt": "We're doing a code review tomorrow and I want to get ahead of the feedback rather than having the whole thing torn apart in the meeting.\n\nThe snippet:\n\n```go\nfunc worker(jobs <-chan int, out chan<- int) {\n    for j := range jobs {\n        out <- j * 2\n    }\n}\n```\n\nHow do I import a module?\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 1,
+    "category": "syntax",
+    "adversarial": true
+  },
+  {
+    "prompt": "I'm still pretty new to all of this and I've been going back and forth reading different tutorials, and honestly a lot of them contradict each other, so I wanted to just ask directly.\n\nThe function in question:\n\n```javascript\nasync function fetchAll(ids) {\n  const out = [];\n  for (const id of ids) {\n    out.push(await fetch(`/api/${id}`));\n  }\n  return out;\n}\n```\n\nWhat does len() return?\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 1,
+    "category": "basic_qa",
+    "adversarial": true
+  },
+  {
+    "prompt": "I'm preparing for a technical interview next week and this came up in a practice problem that I completely fumbled.\n\nThis is what I have so far:\n\n```python\nclass Cache:\n    def __init__(self):\n        self.store = {}\n\n    def get(self, k):\n        return self.store.get(k)\n```\n\nPrint hello world.\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 1,
+    "category": "simple_code",
+    "adversarial": true
+  },
+  {
+    "prompt": "Context: this is for a side project I'm building on weekends, nothing production critical, but I'd still like to do it properly rather than hacking something together that I'll regret later.\n\nCurrent implementation:\n\n```sql\nSELECT u.*, o.total\nFROM users u\nLEFT JOIN orders o ON o.user_id = u.id\nWHERE u.created_at > '2024-01-01'\nORDER BY o.total DESC;\n```\n\nWhat is a dictionary?\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 1,
+    "category": "basic_qa",
+    "adversarial": true
+  },
+  {
+    "prompt": "I'm still pretty new to all of this and I've been going back and forth reading different tutorials, and honestly a lot of them contradict each other, so I wanted to just ask directly.\n\nThis is what I have so far:\n\n```python\nclass Cache:\n    def __init__(self):\n        self.store = {}\n\n    def get(self, k):\n        return self.store.get(k)\n```\n\nHow do I write a comment?\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 1,
+    "category": "syntax",
+    "adversarial": true
+  },
+  {
+    "prompt": "I've been staring at this for about two hours now and I think I'm too deep in it to see the obvious answer, so a fresh pair of eyes would help.\n\nThe snippet:\n\n```go\nfunc worker(jobs <-chan int, out chan<- int) {\n    for j := range jobs {\n        out <- j * 2\n    }\n}\n```\n\nWhat does += do?\n\nConstraints: must stay backward compatible with the existing API, cannot add new third-party dependencies, and has to pass the existing test suite without modification.",
+    "tier": 1,
+    "category": "basic_qa",
+    "adversarial": true
+  },
+  {
+    "prompt": "We're doing a code review tomorrow and I want to get ahead of the feedback rather than having the whole thing torn apart in the meeting.\n\nHere's the relevant code:\n\n```python\ndef process(items):\n    results = []\n    for i in range(len(items)):\n        if items[i] is not None:\n            results.append(items[i])\n    return results\n```\n\nMake this variable name lowercase.\n\nPlease keep the answer practical \u2014 we ship on Friday and I need something I can actually apply, not a theoretical overview of the whole problem space.",
+    "tier": 1,
+    "category": "refactor",
+    "adversarial": true
+  },
+  {
+    "prompt": "I'm still pretty new to all of this and I've been going back and forth reading different tutorials, and honestly a lot of them contradict each other, so I wanted to just ask directly.\n\nCurrent implementation:\n\n```sql\nSELECT u.*, o.total\nFROM users u\nLEFT JOIN orders o ON o.user_id = u.id\nWHERE u.created_at > '2024-01-01'\nORDER BY o.total DESC;\n```\n\nWhat is a boolean?\n\nRequirements: keep it readable for junior engineers, no clever one-liners, and add comments only where the intent isn't obvious from the code.",
+    "tier": 1,
+    "category": "basic_qa",
+    "adversarial": true
+  },
+  {
+    "prompt": "We inherited this service from another team during a reorg and the documentation is, generously, a single README with a TODO in it.\n\nThis is what I have so far:\n\n```python\nclass Cache:\n    def __init__(self):\n        self.store = {}\n\n    def get(self, k):\n        return self.store.get(k)\n```\n\nHow do I check a list's length?\n\nA few things to keep in mind: we're on an older runtime version, the CI budget is tight so nothing that doubles the test time, and the team prefers explicit over implicit.",
+    "tier": 1,
+    "category": "syntax",
+    "adversarial": true
+  }
+]

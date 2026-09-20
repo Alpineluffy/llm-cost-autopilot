@@ -1,0 +1,35 @@
+# Environment
+.env
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Data & Models
+data/autopilot.db
+data/classifier_model.pkl
+data/feedback_state.json
+*.db
+*.db-wal
+*.db-shm
+data/training_prompts.legacy.json
+# Note: data/feedback_data.json is intentionally NOT ignored — the
+# accumulated routing failures are training data worth keeping. Nor is
+# data/eval_length_adversarial.json, which the test suite depends on.
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+.docker/

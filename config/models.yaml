@@ -1,0 +1,65 @@
+# ──────────────────────────────────────────────
+# LLM Cost AutoPilot — Model Registry
+# Edit this file to add/update models without code changes
+# ──────────────────────────────────────────────
+
+models:
+  gpt-4o:
+    provider: openai
+    model_id: gpt-4o
+    display_name: "GPT-4o"
+    cost_per_1m_input_tokens: 2.50
+    cost_per_1m_output_tokens: 10.00
+    max_tokens: 4096
+    context_window: 128000
+    quality_tier: high
+    avg_latency_ms: 800
+    supports_streaming: true
+
+  gpt-4o-mini:
+    provider: openai
+    model_id: gpt-4o-mini
+    display_name: "GPT-4o Mini"
+    cost_per_1m_input_tokens: 0.15
+    cost_per_1m_output_tokens: 0.60
+    max_tokens: 4096
+    context_window: 128000
+    quality_tier: medium
+    avg_latency_ms: 400
+    supports_streaming: true
+
+  claude-sonnet-4-6:
+    provider: anthropic
+    model_id: claude-sonnet-4-6-20260514
+    display_name: "Claude Sonnet 4.6"
+    cost_per_1m_input_tokens: 3.00
+    cost_per_1m_output_tokens: 15.00
+    max_tokens: 4096
+    context_window: 200000
+    quality_tier: high
+    avg_latency_ms: 900
+    supports_streaming: true
+
+  claude-haiku-4-5:
+    provider: anthropic
+    model_id: claude-haiku-4-5-20260301
+    display_name: "Claude Haiku 4.5"
+    cost_per_1m_input_tokens: 1.00
+    cost_per_1m_output_tokens: 5.00
+    max_tokens: 4096
+    context_window: 200000
+    quality_tier: medium
+    avg_latency_ms: 350
+    supports_streaming: true
+
+  llama3.2:
+    provider: ollama
+    model_id: llama3.2
+    display_name: "Llama 3.2 (Local)"
+    cost_per_1m_input_tokens: 0.00
+    cost_per_1m_output_tokens: 0.00
+    max_tokens: 4096
+    context_window: 128000
+    quality_tier: low
+    avg_latency_ms: 1200
+    supports_streaming: true

@@ -1,0 +1,84 @@
+# ──────────────────────────────────────────────
+# LLM Cost AutoPilot — Routing Configuration
+# Maps complexity tiers to models
+# Edit this to swap models without code changes
+# ──────────────────────────────────────────────
+
+routing:
+  tier_1:
+    description: "Simple tasks — reformatting, extraction, basic Q&A, simple code snippets"
+    primary: llama3.2
+    fallback: claude-haiku-4-5
+
+  tier_2:
+    description: "Moderate tasks — summarization, code review, debugging, structured analysis"
+    primary: gpt-4o-mini
+    fallback: claude-haiku-4-5
+
+  tier_3:
+    description: "Complex tasks — multi-step reasoning, architecture design, nuanced code generation"
+    primary: gpt-4o
+    fallback: claude-sonnet-4-6
+
+# Model used for quality verification (LLM-as-judge)
+verification:
+  judge_model: gpt-4o
+  quality_threshold: 3.5    # Global default, used when no use-case policy applies
+  sample_rate: 0.3          # Fraction of requests to verify (0.0 - 1.0)
+
+# ──────────────────────────────────────────────
+# Per-use-case quality bars (Phase 3.1)
+# "Good enough" differs by request type. Each entry sets the passing
+# score (1.0-5.0) and how that score is computed against the reference
+# response from the highest-tier model.
+#
+# Strategies:
+#   field_coverage — fraction of the reference's key fields captured
+#   label_match    — label must equal the reference model's label
+#   rubric         — LLM-as-judge on accuracy/completeness/coherence
+#   agreement      — semantic overlap with the reference response
+# ──────────────────────────────────────────────
+quality_thresholds:
+  extraction:
+    threshold: 4.5
+    strategy: field_coverage
+    criterion: "Must capture >=90% of the key fields the reference model found"
+
+  summarization:
+    threshold: 4.0
+    strategy: rubric
+    criterion: "LLM-as-judge aggregate score above 4.0/5"
+
+  classification:
+    threshold: 5.0
+    strategy: label_match
+    criterion: "Label must match the reference model's label exactly"
+
+  code_generation:
+    threshold: 3.8
+    strategy: rubric
+    criterion: "Judge rubric above 3.8/5 on accuracy, completeness, coherence"
+
+  explanation:
+    threshold: 3.5
+    strategy: rubric
+    criterion: "Judge rubric above 3.5/5"
+
+  general:
+    threshold: 3.5
+    strategy: agreement
+    criterion: "Must not diverge significantly from the reference response"
+
+# Escalation settings (Phase 3.3)
+escalation:
+  enabled: true
+  max_retries: 1
+  log_failures: true
+  # Serve the escalated result to the user only if it arrives within this
+  # budget. Set to null to always serve it, however long it takes.
+  latency_budget_ms: 3000
+
+# Feedback flywheel (Phase 3.4)
+feedback:
+  retrain_interval_days: 7
+  min_examples_to_retrain: 10

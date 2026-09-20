@@ -1,0 +1,77 @@
+{
+  "generated_at": "2026-09-16T20:08:45.986038+00:00",
+  "config": {
+    "requests": 800,
+    "concurrency": 30,
+    "mix": "typical",
+    "mix_weights": [
+      0.5,
+      0.35,
+      0.15
+    ],
+    "verification_sample_rate": 0.3,
+    "mock_providers": true
+  },
+  "throughput": {
+    "routing_seconds": 26.62,
+    "total_seconds_incl_verification": 262.1,
+    "requests_per_second": 30.05
+  },
+  "latency_ms": {
+    "mean": 925.3,
+    "p50": 1024.4,
+    "p95": 1454.5,
+    "p99": 1493.2,
+    "max": 1542.8
+  },
+  "cost": {
+    "routed": 0.377045,
+    "escalation": 0.038597,
+    "total": 0.415642,
+    "baseline_all_top_tier": 2.373258,
+    "savings": 1.957616,
+    "savings_percentage": 82.49
+  },
+  "routing_distribution": {
+    "gpt-4o": 115,
+    "gpt-4o-mini": 278,
+    "llama3.2": 407
+  },
+  "tier_distribution": {
+    "1": 407,
+    "2": 278,
+    "3": 115
+  },
+  "mix_sensitivity": {
+    "typical": 81.9,
+    "light": 91.7,
+    "heavy": 63.4,
+    "uniform": 67.8
+  },
+  "routing_accuracy_MEASURED": {
+    "overall": 86.9,
+    "per_tier": {
+      "1": {
+        "n": 419,
+        "accuracy": 86.6
+      },
+      "2": {
+        "n": 273,
+        "accuracy": 84.2
+      },
+      "3": {
+        "n": 108,
+        "accuracy": 94.4
+      }
+    },
+    "under_routed": 49,
+    "under_routed_pct": 6.1,
+    "over_routed": 56
+  },
+  "verification_SIMULATED": {
+    "verified": 235,
+    "pass_rate": 54.5,
+    "escalations": 107,
+    "note": "Mock providers: these reflect the simulation's constants, not real model quality."
+  }
+}

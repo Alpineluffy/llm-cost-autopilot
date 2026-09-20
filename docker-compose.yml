@@ -1,0 +1,57 @@
+name: llm-cost-autopilot
+
+# Shared settings for every service that runs the application image.
+x-app: &app
+  build: .
+  environment: &app-env
+    DATABASE_URL: sqlite:////app/data/autopilot.db
+    MOCK_PROVIDERS: ${MOCK_PROVIDERS:-true}
+    OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+    ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+    OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+    LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    VERIFICATION_ENABLED: ${VERIFICATION_ENABLED:-true}
+    VERIFICATION_SAMPLE_RATE: ${VERIFICATION_SAMPLE_RATE:-0.3}
+  volumes:
+    # One SQLite file shared by all three services. WAL mode plus a busy
+    # timeout (see Database._configure_sqlite) keeps concurrent access safe.
+    - autopilot-data:/app/data
+  restart: unless-stopped
+
+services:
+  api:
+    <<: *app
+    environment:
+      <<: *app-env
+      # The worker owns retraining, so the API does not also schedule it.
+      RUN_RETRAIN_SCHEDULER: "false"
+    ports:
+      - "${API_PORT:-8000}:8000"
+    command:
+      ["uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+  worker:
+    <<: *app
+    environment:
+      <<: *app-env
+      RETRAIN_CHECK_INTERVAL_HOURS: ${RETRAIN_CHECK_INTERVAL_HOURS:-6}
+    command: ["python", "scripts/run_worker.py"]
+    depends_on:
+      - api
+
+  dashboard:
+    <<: *app
+    ports:
+      - "${DASHBOARD_PORT:-8501}:8501"
+    command:
+      - streamlit
+      - run
+      - dashboard/app.py
+      - --server.port=8501
+      - --server.address=0.0.0.0
+      - --server.headless=true
+    depends_on:
+      - api
+
+volumes:
+  autopilot-data:
