@@ -1,6 +1,7 @@
 """Anthropic provider adapter — supports Claude Sonnet 4.6 and Claude Haiku 4.5.
 
-Operates in mock mode when MOCK_PROVIDERS=true or no API key is set.
+Runs mocked only when MOCK_PROVIDERS is explicitly true; a missing key in
+live mode raises rather than silently fabricating responses.
 """
 
 from __future__ import annotations
@@ -15,6 +16,8 @@ from typing import Optional
 from src.models.providers.base import BaseProvider
 from src.models.registry import ModelConfig
 from src.models.providers.mock_content import generate_mock_response
+from src.models.providers.mode import require_sdk, resolve_mock_mode
+from src.models.providers.tokens import count_tokens
 from src.models.response import LLMResponse
 
 
@@ -23,20 +26,14 @@ class AnthropicProvider(BaseProvider):
 
     def __init__(self) -> None:
         self._api_key = os.getenv("ANTHROPIC_API_KEY", "")
-        self._mock = (
-            os.getenv("MOCK_PROVIDERS", "true").lower() == "true"
-            or not self._api_key
-            or self._api_key.startswith("your-")
+        self._mock = resolve_mock_mode(
+            "AnthropicProvider", self._api_key, "ANTHROPIC_API_KEY"
         )
         self._client = None
 
         if not self._mock:
-            try:
-                from anthropic import AsyncAnthropic
-
-                self._client = AsyncAnthropic(api_key=self._api_key)
-            except ImportError:
-                self._mock = True
+            sdk = require_sdk("AnthropicProvider", "anthropic", "anthropic")
+            self._client = sdk.AsyncAnthropic(api_key=self._api_key)
 
     @property
     def provider_name(self) -> str:
@@ -104,8 +101,8 @@ class AnthropicProvider(BaseProvider):
         await asyncio.sleep((base_latency + jitter) / 1000)
 
         mock_text = self._generate_mock_response(prompt, model_config)
-        input_tokens = max(len(prompt.split()) * 2, 10)
-        output_tokens = max(len(mock_text.split()) * 2, 20)
+        input_tokens = count_tokens(prompt, model_config.model_id)
+        output_tokens = count_tokens(mock_text, model_config.model_id)
 
         return LLMResponse(
             text=mock_text,

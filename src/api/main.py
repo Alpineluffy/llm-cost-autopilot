@@ -16,7 +16,7 @@ import os
 from contextlib import asynccontextmanager
 from typing import Optional
 
-from fastapi import FastAPI, HTTPException, Request, status
+from fastapi import Depends, FastAPI, HTTPException, Request, status
 from fastapi.responses import JSONResponse
 
 from src.api.schemas import (
@@ -33,6 +33,13 @@ from src.api.schemas import (
     StatsResponse,
     UsageMetadata,
 )
+from src.api.security import (
+    check_startup_policy,
+    enforce_context_window,
+    require_api_key,
+)
+from src.models.providers.mode import ProviderConfigurationError
+from src.models.providers.tokens import count_tokens
 from src.service import AutopilotService
 
 logger = logging.getLogger(__name__)
@@ -45,6 +52,8 @@ service: Optional[AutopilotService] = None
 async def lifespan(app: FastAPI):
     """Bring the service up with the worker and retrain scheduler running."""
     global service
+    # Refuses to start if live providers would be exposed without auth.
+    check_startup_policy()
     service = AutopilotService()
 
     # Verification always runs in-process: the queue is an in-memory
@@ -108,6 +117,7 @@ async def health() -> dict:
 
 @app.post(
     "/v1/completions",
+    dependencies=[Depends(require_api_key)],
     response_model=CompletionResponse,
     tags=["completions"],
     summary="Route a completion request to the cheapest capable model",
@@ -122,17 +132,38 @@ async def create_completion(body: CompletionRequest) -> CompletionResponse:
     svc = _require_service()
     prompt = body.to_prompt()
 
+    # Reject a prompt no model could serve, before paying to find out. The
+    # tier isn't known until classification, so this checks the tightest
+    # window in the registry — a backstop beneath the payload size limits,
+    # and the check that starts mattering if a small-context model is added.
+    prompt_tokens = count_tokens(prompt)
+    tightest = min(
+        svc.engine.registry.list_all(),
+        key=lambda m: m.context_window - m.max_tokens,
+    )
+    enforce_context_window(prompt_tokens, tightest)
+
     try:
         routed = await svc.ask(
             prompt=prompt,
             max_tokens=body.max_tokens,
             temperature=body.temperature,
         )
-    except Exception as e:
+    except ProviderConfigurationError:
+        # A deployment problem, not a caller problem — and its message is safe
+        # to surface because it is written by us, not by a provider SDK.
+        logger.exception("Provider misconfigured")
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Model providers are not correctly configured.",
+        )
+    except Exception:
+        # Deliberately opaque: provider exceptions routinely embed request
+        # URLs, org identifiers and occasionally key fragments.
         logger.exception("Routing failed")
         raise HTTPException(
             status_code=status.HTTP_502_BAD_GATEWAY,
-            detail=f"All providers failed: {e}",
+            detail="Upstream model providers are unavailable.",
         )
 
     response, decision = routed.response, routed.decision
@@ -172,6 +203,7 @@ async def create_completion(body: CompletionRequest) -> CompletionResponse:
 
 @app.get(
     "/v1/completions/{log_id}/escalation",
+    dependencies=[Depends(require_api_key)],
     response_model=EscalationResponse,
     tags=["completions"],
     summary="Collect the improved answer, if verification escalated this request",
@@ -210,6 +242,7 @@ async def get_escalation(log_id: int) -> EscalationResponse:
 
 @app.get(
     "/v1/models",
+    dependencies=[Depends(require_api_key)],
     response_model=ModelsResponse,
     tags=["config"],
     summary="List available models and their costs",
@@ -229,6 +262,7 @@ async def list_models() -> ModelsResponse:
 
 @app.get(
     "/v1/stats",
+    dependencies=[Depends(require_api_key)],
     response_model=StatsResponse,
     tags=["config"],
     summary="Cost savings summary — the headline number",
@@ -259,6 +293,7 @@ async def get_stats() -> StatsResponse:
 
 @app.get(
     "/v1/routing-config",
+    dependencies=[Depends(require_api_key)],
     response_model=RoutingConfigResponse,
     tags=["config"],
 )
@@ -269,6 +304,7 @@ async def get_routing_config() -> RoutingConfigResponse:
 
 @app.put(
     "/v1/routing-config",
+    dependencies=[Depends(require_api_key)],
     response_model=RoutingConfigResponse,
     tags=["config"],
     summary="Remap tiers to models without redeploying",

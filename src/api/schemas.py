@@ -9,9 +9,16 @@ from pydantic import BaseModel, Field, field_validator
 
 # ── POST /v1/completions ────────────────────────────────────────────────
 
+#: Per-message ceiling. Generous enough for a pasted file, small enough that
+#: no single message can drive the three-call fan-out into real money.
+MAX_MESSAGE_CHARS = 200_000
+MAX_TOTAL_CHARS = 250_000
+MAX_MESSAGES = 50
+
+
 class Message(BaseModel):
     role: Literal["system", "user", "assistant"]
-    content: str = Field(min_length=1)
+    content: str = Field(min_length=1, max_length=MAX_MESSAGE_CHARS)
 
 
 class CompletionRequest(BaseModel):
@@ -22,7 +29,7 @@ class CompletionRequest(BaseModel):
     to serve it.
     """
 
-    messages: list[Message] = Field(min_length=1)
+    messages: list[Message] = Field(min_length=1, max_length=MAX_MESSAGES)
     max_tokens: Optional[int] = Field(default=None, gt=0, le=32_000)
     temperature: float = Field(default=0.7, ge=0.0, le=2.0)
 
@@ -31,6 +38,23 @@ class CompletionRequest(BaseModel):
     def must_contain_a_user_message(cls, messages: list[Message]) -> list[Message]:
         if not any(m.role == "user" for m in messages):
             raise ValueError("at least one message must have role 'user'")
+        return messages
+
+    @field_validator("messages")
+    @classmethod
+    def total_size_within_limit(cls, messages: list[Message]) -> list[Message]:
+        """Cap the conversation as a whole.
+
+        Per-message limits alone are not enough: 50 messages just under the
+        per-message cap would still add up to a payload worth dollars once
+        verification and escalation re-send it.
+        """
+        total = sum(len(m.content) for m in messages)
+        if total > MAX_TOTAL_CHARS:
+            raise ValueError(
+                f"conversation is {total:,} characters; the limit is "
+                f"{MAX_TOTAL_CHARS:,}"
+            )
         return messages
 
     def to_prompt(self) -> str:

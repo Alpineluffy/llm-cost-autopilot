@@ -52,8 +52,9 @@ matter more than the figure itself:
   | Heavy (25/35/40) | 63.4% |
 
   Quote it *with* the mix or it means nothing.
-- **Token counts are simulated.** In mock mode they are `len(text.split()) * 2`. Real
-  usage numbers require real API keys.
+- **Token counts are simulated.** In mock mode they are counted with `tiktoken` against
+  synthetic responses — accurate tokenization of text no real model produced. Real usage
+  numbers require real API keys.
 
 What *is* measured: **86.9% routing accuracy** on prompts held out from training, with
 6.1% under-routed (sent to a model below the tier they needed) — the failure direction
@@ -142,6 +143,12 @@ docker compose up --build
 Runs in **mock-provider mode** by default, so it works with no API keys. For real calls,
 copy `.env.example` to `.env`, add your keys, and set `MOCK_PROVIDERS=false`.
 
+> **Going live requires an API key.** With `MOCK_PROVIDERS=false` the service refuses to
+> start unless `AUTOPILOT_API_KEY` is set — one request can fan out to three paid model
+> calls, so an open endpoint is a billing risk. A missing or placeholder provider key
+> also raises rather than silently returning fabricated answers. See
+> [SECURITY.md](SECURITY.md).
+
 ### Local
 
 ```bash
@@ -168,9 +175,10 @@ A standard chat-completion request — with no `model` field. Choosing the model
 service's job.
 
 ```bash
-curl -s localhost:8000/v1/completions -H 'content-type: application/json' -d '{
-  "messages": [{"role": "user", "content": "What is a Python decorator?"}]
-}'
+curl -s localhost:8000/v1/completions \
+  -H 'content-type: application/json' \
+  -H "X-API-Key: $AUTOPILOT_API_KEY" \
+  -d '{"messages": [{"role": "user", "content": "What is a Python decorator?"}]}'
 ```
 
 ```jsonc
