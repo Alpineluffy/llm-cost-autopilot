@@ -19,8 +19,7 @@ better over time.
 
 ![Cost dashboard](reports/screenshots/dashboard-hero.png)
 
-📄 **[Read the case study](CASE_STUDY.md)** · 📊 [Full load test report](reports/load_test_report.md)
-· 🖼 [Full dashboard](reports/screenshots/dashboard-full.png)
+📄 **[Case study](CASE_STUDY.md)** · 🏗 [Architecture](ARCHITECTURE.md) · 📊 [Load test report](reports/load_test_report.md) · 🔒 [Security](SECURITY.md) · 🖼 [Full dashboard](reports/screenshots/dashboard-full.png)
 
 That figure is **net of escalation spend**. When verification catches a bad answer,
 AutoPilot re-runs it on a better model and that second call is counted against the

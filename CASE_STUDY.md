@@ -50,6 +50,7 @@ outputs. How they're compared depends on what the request actually was:
 | Classification | 5.0 / 5 | Does its label match the reference label exactly? |
 | Summarization | 4.0 / 5 | LLM-as-judge rubric |
 | Code generation | 3.8 / 5 | Same rubric, lower bar |
+| Explanation | 3.5 / 5 | Same rubric |
 | General | 3.5 / 5 | Semantic agreement with the reference |
 
 A single quality threshold would have been wrong. "Good enough" for a summary is a judge
@@ -183,6 +184,12 @@ the wrong quantity (a *delta* that can go negative, which would have credited th
 for failing). Both made the headline look better. Both are now covered by tests.
 
 ---
+
+## Further reading
+
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** — request lifecycle, component responsibilities, why the router cannot import the verifier, and the cost-accounting rules
+- **[SECURITY.md](SECURITY.md)** — the defects found in review and what remains
+- **[reports/load_test_report.md](reports/load_test_report.md)** — the full 800-request run
 
 ## Stack
 
